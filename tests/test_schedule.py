@@ -1,5 +1,8 @@
+import os
+
 import pytest
 
+from alerts.logging_setup import configure_logging
 from alerts.schedule import read_env_file, validate_cron_expression
 from scripts.install_cron import BEGIN_MARKER, END_MARKER, replace_managed_entry
 
@@ -59,3 +62,26 @@ def test_replace_managed_entry_replaces_existing_schedule():
     assert updated.count(BEGIN_MARKER) == 1
     assert "0 * * * * /old" not in updated
     assert "*/10 * * * * /new" in updated
+
+
+def test_logging_rotates_hourly_and_removes_only_logs_older_than_five_days(tmp_path):
+    old_log = tmp_path / "job-alerts.log.2020-01-01_00"
+    unrelated_log = tmp_path / "other.log.2020-01-01_00"
+    old_log.write_text("old", encoding="utf-8")
+    unrelated_log.write_text("keep", encoding="utf-8")
+    old_log.touch()
+    os.utime(old_log, (1, 1))
+
+    logger = configure_logging(tmp_path)
+    logger.info("successful fetch: company=Example jobs=3")
+    handler = next(h for h in logger.handlers if hasattr(h, "when"))
+    try:
+        assert handler.when == "H"
+        assert handler.interval == 3600
+        assert (tmp_path / "job-alerts.log").read_text(encoding="utf-8").find("successful fetch") >= 0
+        assert not old_log.exists()
+        assert unrelated_log.exists()
+    finally:
+        for active_handler in logger.handlers[:]:
+            logger.removeHandler(active_handler)
+            active_handler.close()

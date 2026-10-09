@@ -39,10 +39,9 @@ def main() -> int:
     project = Path(__file__).resolve().parents[1]
     state_dir = home / ".local" / "state" / "job-alerts"
     state_dir.mkdir(parents=True, exist_ok=True)
-    log_file = state_dir / "cron.log"
     command = (
         f"{expression} cd {project} && {project}/.venv/bin/python "
-        f"-m alerts.cron_runner >> {log_file} 2>&1"
+        f"-m alerts.cron_runner >/dev/null 2>&1"
     )
 
     current = subprocess.run(["crontab", "-l"], capture_output=True, text=True, check=False)
@@ -59,7 +58,7 @@ def main() -> int:
         raise RuntimeError(f"Could not install cron entry: {result.stderr.strip()}")
 
     print(f"Installed job-alerts schedule: {expression}")
-    print(f"Cron output log: {log_file}")
+    print(f"Application logs: {state_dir / 'job-alerts.log'}")
     return 0
 
 

@@ -153,7 +153,10 @@ crontab -l
 
 The installer replaces only its own marked entry and leaves unrelated crontab
 entries intact. It accepts numeric five-field cron expressions, such as
-`*/10 * * * *` (every ten minutes) or `7 * * * *` (hourly at minute 7). Cron
-output is written to `~/.local/state/job-alerts/cron.log`. The cron runner reads
-the private env file at each run and refuses to start without both Telegram
-credentials. Disable the systemd timer if you previously configured one.
+`*/10 * * * *` (every ten minutes) or `7 * * * *` (hourly at minute 7). The app
+logs every company's successful fetch (counts of fetched, matched, and new jobs)
+and failed fetch, plus run summaries, to `~/.local/state/job-alerts/job-alerts.log`.
+Logs rotate hourly to timestamped files; rotated logs older than five days are
+removed when the app starts. The cron runner reads the private env file at each
+run and refuses to start without both Telegram credentials. Disable the systemd
+timer if you previously configured one.

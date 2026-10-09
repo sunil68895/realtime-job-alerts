@@ -16,6 +16,7 @@ import yaml
 
 from .filters import Filters
 from .http import Http
+from .logging_setup import configure_logging
 from .models import FetchError
 from .sources import SOURCES
 from .state import State
@@ -50,6 +51,7 @@ def make_telegram(dry_run):
 
 
 def run(args, http=None, telegram=None) -> int:
+    logger = configure_logging(os.path.dirname(os.path.abspath(args.state)) or ".")
     settings = load_yaml("filters.yaml")
     companies = load_yaml("companies.yaml").get("companies", [])
     filters = Filters(settings)
@@ -72,7 +74,7 @@ def run(args, http=None, telegram=None) -> int:
             continue
         source = SOURCES.get(cfg.get("source"))
         if source is None:
-            print(f"[{name}] unknown source {cfg.get('source')!r}, skipped")
+            logger.warning("[%s] unknown source %r; skipped", name, cfg.get("source"))
             continue
 
         health = state.company(name)
@@ -80,7 +82,8 @@ def run(args, http=None, telegram=None) -> int:
             raw = list(source(http, cfg))
         except (FetchError, KeyError, TypeError, ValueError, AttributeError) as exc:
             health["fail_streak"] += 1
-            print(f"[{name}] FAILED ({health['fail_streak']} in a row): {exc}")
+            logger.error("[%s] fetch failed (%d consecutive runs): %s",
+                         name, health["fail_streak"], exc, exc_info=True)
             if health["fail_streak"] >= FAIL_WARN_AFTER and not health["warned"]:
                 warnings.append(f"<b>{esc(name)}</b>: failing for {health['fail_streak']} runs in a row. "
                                 f"Last error: {esc(str(exc))[:300]}")
@@ -95,7 +98,7 @@ def run(args, http=None, telegram=None) -> int:
                 health["warned"] = True
         else:
             if health["warned"]:
-                print(f"[{name}] recovered")
+                logger.info("[%s] recovered after prior failures or empty results", name)
             health.update(fail_streak=0, zero_streak=0, warned=False)
         health["last_ok"] = state.today
         health["last_count"] = len(raw)
@@ -118,10 +121,12 @@ def run(args, http=None, telegram=None) -> int:
             for j in matched:
                 state.mark_seen(j)
             health["bootstrapped"] = True
-            print(f"[{name}] first run: {len(raw)} jobs, {len(matched)} match, stored without alerting")
+            logger.info("[%s] fetch succeeded: %d jobs; %d matched; bootstrapped without alerts",
+                        name, len(raw), len(matched))
             continue
 
-        print(f"[{name}] {len(raw)} jobs, {len(matched)} match, {len(new)} new")
+        logger.info("[%s] fetch succeeded: %d jobs; %d matched; %d new",
+                    name, len(raw), len(matched), len(new))
         to_send.extend(new)
 
     sent = send_alerts(telegram, to_send)
@@ -129,12 +134,15 @@ def run(args, http=None, telegram=None) -> int:
         state.mark_seen(job)
     for text in warnings:
         telegram.send("Job alerts warning\n" + text)
+        logger.warning("Sent company health warning: %s", text)
 
     pruned = state.prune()
     if not args.dry_run:
         state.save()
-    print(f"Done in {time.monotonic() - started:.0f}s: {len(sent)} sent, "
-          f"{len(to_send) - len(sent)} failed to send, {len(warnings)} warnings, {pruned} old IDs forgotten.")
+    logger.info("Run complete in %.0fs: %d sent, %d failed to send, %d warnings, "
+                "%d old IDs forgotten.",
+                time.monotonic() - started, len(sent), len(to_send) - len(sent),
+                len(warnings), pruned)
     return 0 if len(sent) == len(to_send) else 1
 
 
