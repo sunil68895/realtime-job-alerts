@@ -1572,7 +1572,7 @@
    "zero_streak": 0,
    "warned": false,
    "last_ok": "2026-10-09",
-   "last_count": 159
+   "last_count": 160
   },
   "Amazon": {
    "bootstrapped": true,
@@ -1649,7 +1649,7 @@
   "Media.net": {
    "bootstrapped": true,
    "fail_streak": 0,
-   "zero_streak": 1,
+   "zero_streak": 2,
    "warned": false,
    "last_ok": "2026-10-09",
    "last_count": 0
@@ -1676,7 +1676,7 @@
    "zero_streak": 0,
    "warned": false,
    "last_ok": "2026-10-09",
-   "last_count": 85
+   "last_count": 84
   },
   "Nutanix": {
    "bootstrapped": true,
@@ -1692,7 +1692,7 @@
    "zero_streak": 0,
    "warned": false,
    "last_ok": "2026-10-09",
-   "last_count": 375
+   "last_count": 377
   },
   "Palo Alto Networks": {
    "bootstrapped": true,
@@ -1700,7 +1700,7 @@
    "zero_streak": 0,
    "warned": false,
    "last_ok": "2026-10-09",
-   "last_count": 74
+   "last_count": 75
   },
   "Paytm": {
    "bootstrapped": true,
@@ -1708,7 +1708,7 @@
    "zero_streak": 0,
    "warned": false,
    "last_ok": "2026-10-09",
-   "last_count": 184
+   "last_count": 183
   },
   "Razorpay": {
    "bootstrapped": true,
@@ -1732,12 +1732,12 @@
    "zero_streak": 0,
    "warned": false,
    "last_ok": "2026-10-09",
-   "last_count": 133
+   "last_count": 134
   },
   "SAP Labs": {
    "bootstrapped": true,
    "fail_streak": 0,
-   "zero_streak": 1,
+   "zero_streak": 2,
    "warned": false,
    "last_ok": "2026-10-09",
    "last_count": 0
@@ -1748,7 +1748,7 @@
    "zero_streak": 0,
    "warned": false,
    "last_ok": "2026-10-09",
-   "last_count": 731
+   "last_count": 732
   },
   "Twilio": {
    "bootstrapped": true,
