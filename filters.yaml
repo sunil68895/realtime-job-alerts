@@ -15,15 +15,8 @@ title:
     - software engineer ii
     - software developer 2
     - software developer ii
-    - member of technical staff
     - mts 2
     - mts ii
-    - backend engineer
-    - frontend engineer
-    - full stack engineer
-    - fullstack engineer
-    - product engineer
-    - platform engineer
     - engineer ii
 
   # Roles above SDE-2, including titles that also contain a keep phrase.
@@ -44,6 +37,13 @@ title:
     - software engineer
     - software developer
     - software development engineer
+    - member of technical staff
+    - backend engineer
+    - frontend engineer
+    - full stack engineer
+    - fullstack engineer
+    - product engineer
+    - platform engineer
     - developer
 
   # Never sent, even if a keep word also matches.
