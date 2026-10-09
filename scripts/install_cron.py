@@ -12,6 +12,19 @@ BEGIN_MARKER = "# BEGIN realtime-job-alerts"
 END_MARKER = "# END realtime-job-alerts"
 
 
+def ensure_log_link(project: Path, state_dir: Path) -> Path:
+    """Expose the persistent log directory through the project folder."""
+    link = project / "logs"
+    if link.is_symlink():
+        if link.resolve() != state_dir.resolve():
+            raise ValueError(f"{link} already points to a different location")
+    elif link.exists():
+        raise ValueError(f"{link} exists and is not the managed log symlink")
+    else:
+        link.symlink_to(state_dir, target_is_directory=True)
+    return link
+
+
 def replace_managed_entry(existing: str, entry: str) -> str:
     lines = existing.splitlines()
     start = lines.index(BEGIN_MARKER) if BEGIN_MARKER in lines else None
@@ -39,6 +52,7 @@ def main() -> int:
     project = Path(__file__).resolve().parents[1]
     state_dir = home / ".local" / "state" / "job-alerts"
     state_dir.mkdir(parents=True, exist_ok=True)
+    log_link = ensure_log_link(project, state_dir)
     command = (
         f"{expression} cd {project} && {project}/.venv/bin/python "
         f"-m alerts.cron_runner >/dev/null 2>&1"
@@ -58,7 +72,7 @@ def main() -> int:
         raise RuntimeError(f"Could not install cron entry: {result.stderr.strip()}")
 
     print(f"Installed job-alerts schedule: {expression}")
-    print(f"Application logs: {state_dir / 'job-alerts.log'}")
+    print(f"Application logs: {log_link / 'job-alerts.log'}")
     return 0
 
 

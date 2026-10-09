@@ -4,7 +4,12 @@ import pytest
 
 from alerts.logging_setup import configure_logging
 from alerts.schedule import read_env_file, validate_cron_expression
-from scripts.install_cron import BEGIN_MARKER, END_MARKER, replace_managed_entry
+from scripts.install_cron import (
+    BEGIN_MARKER,
+    END_MARKER,
+    ensure_log_link,
+    replace_managed_entry,
+)
 
 
 def test_read_env_file_supports_comments_whitespace_and_quotes(tmp_path):
@@ -62,6 +67,30 @@ def test_replace_managed_entry_replaces_existing_schedule():
     assert updated.count(BEGIN_MARKER) == 1
     assert "0 * * * * /old" not in updated
     assert "*/10 * * * * /new" in updated
+
+
+def test_ensure_log_link_points_to_persistent_log_directory(tmp_path):
+    project = tmp_path / "project"
+    state_dir = tmp_path / "state" / "job-alerts"
+    project.mkdir()
+    state_dir.mkdir(parents=True)
+
+    link = ensure_log_link(project, state_dir)
+
+    assert link.is_symlink()
+    assert link.resolve() == state_dir.resolve()
+    assert ensure_log_link(project, state_dir) == link
+
+
+def test_ensure_log_link_refuses_unmanaged_existing_path(tmp_path):
+    project = tmp_path / "project"
+    state_dir = tmp_path / "state"
+    project.mkdir()
+    state_dir.mkdir()
+    (project / "logs").mkdir()
+
+    with pytest.raises(ValueError, match="not the managed log symlink"):
+        ensure_log_link(project, state_dir)
 
 
 def test_logging_rotates_hourly_and_removes_only_logs_older_than_five_days(tmp_path):

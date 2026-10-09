@@ -156,6 +156,8 @@ entries intact. It accepts numeric five-field cron expressions, such as
 `*/10 * * * *` (every ten minutes) or `7 * * * *` (hourly at minute 7). The app
 logs every company's successful fetch (counts of fetched, matched, and new jobs)
 and failed fetch, plus run summaries, to `~/.local/state/job-alerts/job-alerts.log`.
+The installer creates `~/realtime-job-alerts/logs` as a symlink to that persistent
+log directory for easy access from the project folder.
 Logs rotate hourly to timestamped files; rotated logs older than five days are
 removed when the app starts. The cron runner reads the private env file at each
 run and refuses to start without both Telegram credentials. Disable the systemd
