@@ -1,6 +1,11 @@
 {
  "version": 1,
  "jobs": {
+  "AMD:84401": {
+   "first_seen": "2026-10-09",
+   "title": "ML SOFTWARE DEVELOPMENT ENGINEER  ",
+   "last_seen": "2026-10-09"
+  },
   "AMD:85898": {
    "first_seen": "2026-10-09",
    "title": "Senior Windows Kernel Developer – Device Drivers & Virtualization",
@@ -34,6 +39,11 @@
   "AMD:93342": {
    "first_seen": "2026-10-09",
    "title": "STA Engineer - EDA/CAD Flow : Software Development Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10543432": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Sidewalk Cloud",
    "last_seen": "2026-10-09"
   },
   "Amazon:10552379": {
@@ -386,6 +396,11 @@
    "title": "Software Development Engineer II, Recipient Experience, Recipient Experience",
    "last_seen": "2026-10-09"
   },
+  "Apple:200677836-0321": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer - Java, Spring Boot and Microservices",
+   "last_seen": "2026-10-09"
+  },
   "Apple:200677836-1052": {
    "first_seen": "2026-10-09",
    "title": "Software Engineer - Java, Spring Boot and Microservices",
@@ -466,6 +481,11 @@
    "title": "Java Backend Engineer- Retail Engineering",
    "last_seen": "2026-10-09"
   },
+  "Atlassian:25540": {
+   "first_seen": "2026-10-09",
+   "title": "Backend Software Engineer, II",
+   "last_seen": "2026-10-09"
+  },
   "Atlassian:25569": {
    "first_seen": "2026-10-09",
    "title": "Senior Backend Software Engineer",
@@ -494,6 +514,11 @@
   "Atlassian:27230": {
    "first_seen": "2026-10-09",
    "title": "Senior Software Engineer - Data Platform",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:6709301002": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer (Backend)",
    "last_seen": "2026-10-09"
   },
   "Databricks:7601580002": {
@@ -1520,11 +1545,6 @@
    "first_seen": "2026-10-09",
    "title": "Sr. Software Development Engineer",
    "last_seen": "2026-10-09"
-  },
-  "Databricks:6709301002": {
-   "first_seen": "2026-10-09",
-   "title": "Senior Software Engineer (Backend)",
-   "last_seen": "2026-10-09"
   }
  },
  "companies": {
@@ -1619,7 +1639,7 @@
   "Media.net": {
    "bootstrapped": true,
    "fail_streak": 0,
-   "zero_streak": 3,
+   "zero_streak": 4,
    "warned": false,
    "last_ok": "2026-10-09",
    "last_count": 0
@@ -1670,7 +1690,7 @@
    "zero_streak": 0,
    "warned": false,
    "last_ok": "2026-10-09",
-   "last_count": 75
+   "last_count": 74
   },
   "Paytm": {
    "bootstrapped": true,
@@ -1707,7 +1727,7 @@
   "SAP Labs": {
    "bootstrapped": true,
    "fail_streak": 0,
-   "zero_streak": 3,
+   "zero_streak": 4,
    "warned": false,
    "last_ok": "2026-10-09",
    "last_count": 0
