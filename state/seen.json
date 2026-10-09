@@ -1,1 +1,1770 @@
-{}
+{
+ "version": 1,
+ "jobs": {
+  "AMD:84401": {
+   "first_seen": "2026-10-09",
+   "title": "ML SOFTWARE DEVELOPMENT ENGINEER  ",
+   "last_seen": "2026-10-09"
+  },
+  "AMD:85898": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Windows Kernel Developer – Device Drivers & Virtualization",
+   "last_seen": "2026-10-09"
+  },
+  "AMD:85899": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Linux Kernel Developer – Ethernet Drivers & Virtualization",
+   "last_seen": "2026-10-09"
+  },
+  "AMD:90958": {
+   "first_seen": "2026-10-09",
+   "title": "System Software Engineer - Linux Kernel",
+   "last_seen": "2026-10-09"
+  },
+  "AMD:91065": {
+   "first_seen": "2026-10-09",
+   "title": "AI/ML Compiler Developer (NPU Acceleration)",
+   "last_seen": "2026-10-09"
+  },
+  "AMD:92002": {
+   "first_seen": "2026-10-09",
+   "title": "Sr Software Engineer - Developer & Build Experience (Gradle, Compiler with C/C++)",
+   "last_seen": "2026-10-09"
+  },
+  "AMD:92872": {
+   "first_seen": "2026-10-09",
+   "title": "SOFTWARE DEVELOPMENT ENGINEER -- OP-TEE/C/U-BOOT",
+   "last_seen": "2026-10-09"
+  },
+  "AMD:93342": {
+   "first_seen": "2026-10-09",
+   "title": "STA Engineer - EDA/CAD Flow : Software Development Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10543432": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Sidewalk Cloud",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10552379": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, AWS OpenSearch",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10553121": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10554323": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Amazon",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10554342": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, RBS Tech",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10554371": {
+   "first_seen": "2026-10-09",
+   "title": "Sr Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10554616": {
+   "first_seen": "2026-10-09",
+   "title": " Software Development Engineer, AI Business Automation, AI Business Automation, Prime Video",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10555136": {
+   "first_seen": "2026-10-09",
+   "title": "Sr. Software Development Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10555143": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10555781": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10556180": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Prime Video Live Events - Sports Data Platform",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10556331": {
+   "first_seen": "2026-10-09",
+   "title": "SDE II, Amazon Business Operations",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10556600": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10556603": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10556606": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10556613": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer III",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10557759": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Tax Engine Services ",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10558329": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Customer Experience and Business Trends",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10558348": {
+   "first_seen": "2026-10-09",
+   "title": "Software Dev Engineer II, HST Health Foundation",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10558895": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Alexa for Shopping",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10558934": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, Seller Partner Services Tech",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10560180": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10561001": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Time & Pay Innovation",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10561002": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Time & Pay Innovation",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10561003": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Time & Pay Innovation",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10561004": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Time & Pay Innovation",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10561005": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Time & Pay Innovation",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10561007": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Time & Pay Innovation",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10561009": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, Timehub Experience",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10561361": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, Enterprise Engineering",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10562263": {
+   "first_seen": "2026-10-09",
+   "title": "Software Dev Engineer II, Emerging Device Software",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10562604": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, Unified Auth SDK",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10562897": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, Timehub Pay Extract",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10562899": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, Timehub Pay Extract",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10563217": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer 2",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10563367": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, CAM",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10564584": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, AI Trust & Innovation",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10564871": {
+   "first_seen": "2026-10-09",
+   "title": "Software Dev Engineer - II, Selling Partner Success, EE Replenishment",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10565198": {
+   "first_seen": "2026-10-09",
+   "title": "Software Dev Engineer II, FinTech Tax",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10565475": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, SP Support",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10565511": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Prime Video Live Events - Sports Data Platform",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10565527": {
+   "first_seen": "2026-10-09",
+   "title": "SENIOR SOFTWARE DEVELOPMENT ENGINEER, Infra Supply Chain Automation",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10565715": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, Amazon FinAuto - Travel & Events",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10565717": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, Amazon FinAuto - Travel & Events",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10565718": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, Amazon FinAuto - Travel & Events",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10565804": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, Prime Video Sports, PV Sports and Linear Tech",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10567650": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, Infrastructure Supply Chain Automation, Infrastructure Supply Chain Automation",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10568477": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, AWS DynamoDB",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10568815": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, FinTech General Ledger",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10570043": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, Int'l TechnologyEURegionalfund",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10570060": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, EU INTech Partner Growth Experience",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10570061": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, EU INTech Partner Growth Experience",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10570107": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer - II",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10570197": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Amazon Fulfillment Technology (AFT), Platform Engineering and Services",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10570198": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Amazon Fulfillment Technology (AFT), Platform Engineering and Services",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10570248": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Amazon Fulfillment Technology (AFT), Platform Engineering and Services",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10570652": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Development Engineer, Global Logistics",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10571293": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, Grocery In-store",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10571471": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II , Amazon Cross Border Tech, Amazon Cross Border Tech",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10571553": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, EU INTech Partner Growth Experience",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10571633": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, CAM",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10571784": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10571786": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10571791": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10571793": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10572015": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Amazon",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10572202": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Last Mile Platform Services, SDE",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10572951": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Development Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10573003": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer, Amazon",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10573207": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer-II, Amazon Smart Vehicles",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10573554": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer- II, Amazon Autos",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10573876": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer-II (SDE 2), Worldwide Returns & ReCommerce - OpsFlow",
+   "last_seen": "2026-10-09"
+  },
+  "Amazon:10574336": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer II, Recipient Experience, Recipient Experience",
+   "last_seen": "2026-10-09"
+  },
+  "Apple:200677836-0321": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer - Java, Spring Boot and Microservices",
+   "last_seen": "2026-10-09"
+  },
+  "Apple:200677836-1052": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer - Java, Spring Boot and Microservices",
+   "last_seen": "2026-10-09"
+  },
+  "Apple:200677847-0321": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer (Java, Spring Boot and Microservices), Customer Systems",
+   "last_seen": "2026-10-09"
+  },
+  "Apple:200677847-1052": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer (Java, Spring Boot and Microservices), Customer Systems",
+   "last_seen": "2026-10-09"
+  },
+  "Apple:200678391-0321": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer in Test - IS&T",
+   "last_seen": "2026-10-09"
+  },
+  "Apple:200678391-1052": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer in Test - IS&T",
+   "last_seen": "2026-10-09"
+  },
+  "Apple:200680900-1052": {
+   "first_seen": "2026-10-09",
+   "title": "Voice Platform Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Apple:200682312-0321": {
+   "first_seen": "2026-10-09",
+   "title": "Junior Software Development Engineer in Test, Retail Engineering - IS&T",
+   "last_seen": "2026-10-09"
+  },
+  "Apple:200683195-1052": {
+   "first_seen": "2026-10-09",
+   "title": "Tableau Developer Analyst, Retail Customer Care",
+   "last_seen": "2026-10-09"
+  },
+  "Apple:200684114-0321": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer – Content Management Systems",
+   "last_seen": "2026-10-09"
+  },
+  "Apple:200684126-0321": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer - Content Management Systems",
+   "last_seen": "2026-10-09"
+  },
+  "Apple:200684375-1052": {
+   "first_seen": "2026-10-09",
+   "title": "Integration Engineering - Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Apple:200684765-1052": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Cloud Software Engineer, Find My",
+   "last_seen": "2026-10-09"
+  },
+  "Apple:200685067-0321": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer, Cloud Networking (Test Automation)",
+   "last_seen": "2026-10-09"
+  },
+  "Apple:200686075-1052": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer - Digital Asset Management",
+   "last_seen": "2026-10-09"
+  },
+  "Apple:200686536-1052": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer in Test, Retail Engineering",
+   "last_seen": "2026-10-09"
+  },
+  "Apple:200687867-1052": {
+   "first_seen": "2026-10-09",
+   "title": "Java Backend Engineer- Retail Engineering",
+   "last_seen": "2026-10-09"
+  },
+  "Atlassian:25540": {
+   "first_seen": "2026-10-09",
+   "title": "Backend Software Engineer, II",
+   "last_seen": "2026-10-09"
+  },
+  "Atlassian:25569": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Backend Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Atlassian:25699": {
+   "first_seen": "2026-10-09",
+   "title": "Fullstack Software Engineer, II",
+   "last_seen": "2026-10-09"
+  },
+  "Atlassian:25700": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Full Stack Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Atlassian:26757": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Atlassian:26758": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Atlassian:27230": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Data Platform",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:6709301002": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer (Backend)",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:7601580002": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Data Platform",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:7619810002": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer (Infra)",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:7619811002": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Observability",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:7647353002": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer- Networking",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:7647369002": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer (Data Platform)",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:7654347002": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer (Money)",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:7841782002": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Search",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:7897431002": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Data + AI Observability",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:7925560002": {
+   "first_seen": "2026-10-09",
+   "title": "Sr. Software Engineer - Observability",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:7934782002": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Ingestion",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:7938410002": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Partner Ecosystem",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:7955594002": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer (Backend - SDE 2)",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:7955601002": {
+   "first_seen": "2026-10-09",
+   "title": "Sr Software Engineer - Backend",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:8210383002": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer (App-Framework)",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:8294304002": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer (App-Framework)",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:8320183002": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Backend",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:8602402002": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Multi Cloud Efficiency",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:8679980002": {
+   "first_seen": "2026-10-09",
+   "title": "Senior SAP Developer",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:8679982002": {
+   "first_seen": "2026-10-09",
+   "title": "Sr Software Engineer - Agentic Applications (Full Stack)",
+   "last_seen": "2026-10-09"
+  },
+  "Databricks:8829029002": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer, Infrastructure",
+   "last_seen": "2026-10-09"
+  },
+  "Google:101212497425375942": {
+   "first_seen": "2026-10-09",
+   "title": "Software engineer iii full stack google cloud",
+   "last_seen": "2026-10-09"
+  },
+  "Google:118302093231432390": {
+   "first_seen": "2026-10-09",
+   "title": "Senior software engineer full stack google cloud",
+   "last_seen": "2026-10-09"
+  },
+  "Google:118479391092024006": {
+   "first_seen": "2026-10-09",
+   "title": "Software engineer business insights platform",
+   "last_seen": "2026-10-09"
+  },
+  "Google:119515568058311366": {
+   "first_seen": "2026-10-09",
+   "title": "Senior software engineer storage",
+   "last_seen": "2026-10-09"
+  },
+  "Google:120736258967118534": {
+   "first_seen": "2026-10-09",
+   "title": "Software engineer iii embedded systemsfirmware",
+   "last_seen": "2026-10-09"
+  },
+  "Google:121538506244661958": {
+   "first_seen": "2026-10-09",
+   "title": "Senior software engineer core",
+   "last_seen": "2026-10-09"
+  },
+  "Google:122664621973611206": {
+   "first_seen": "2026-10-09",
+   "title": "Senior software engineer ai platform",
+   "last_seen": "2026-10-09"
+  },
+  "Google:122710813273137862": {
+   "first_seen": "2026-10-09",
+   "title": "Software engineer search",
+   "last_seen": "2026-10-09"
+  },
+  "Google:129511213234037446": {
+   "first_seen": "2026-10-09",
+   "title": "Senior software engineer full stack core",
+   "last_seen": "2026-10-09"
+  },
+  "Google:130896050276704966": {
+   "first_seen": "2026-10-09",
+   "title": "Software engineer iii securityprivacy gtech risk",
+   "last_seen": "2026-10-09"
+  },
+  "Google:131572375555580614": {
+   "first_seen": "2026-10-09",
+   "title": "Software engineer iii full stack cloud",
+   "last_seen": "2026-10-09"
+  },
+  "Google:135249135996412614": {
+   "first_seen": "2026-10-09",
+   "title": "Senior software engineer search platforms",
+   "last_seen": "2026-10-09"
+  },
+  "Google:135718318223827654": {
+   "first_seen": "2026-10-09",
+   "title": "Senior software engineer video editing androidios",
+   "last_seen": "2026-10-09"
+  },
+  "Google:136546867881091782": {
+   "first_seen": "2026-10-09",
+   "title": "Senior software engineer aiml google cloud",
+   "last_seen": "2026-10-09"
+  },
+  "Google:137126335204991686": {
+   "first_seen": "2026-10-09",
+   "title": "Senior software engineer full stack",
+   "last_seen": "2026-10-09"
+  },
+  "Google:138472965292335814": {
+   "first_seen": "2026-10-09",
+   "title": "Senior software engineer search",
+   "last_seen": "2026-10-09"
+  },
+  "Google:138674961899233990": {
+   "first_seen": "2026-10-09",
+   "title": "Software engineer ii corp eng",
+   "last_seen": "2026-10-09"
+  },
+  "Google:140703144240652998": {
+   "first_seen": "2026-10-09",
+   "title": "Senior software engineer security and privacy detection ai core",
+   "last_seen": "2026-10-09"
+  },
+  "Google:141387972648805062": {
+   "first_seen": "2026-10-09",
+   "title": "Senior software engineer google cloud",
+   "last_seen": "2026-10-09"
+  },
+  "Google:141397531467621062": {
+   "first_seen": "2026-10-09",
+   "title": "Senior software engineer ml compiler frameworks and performance",
+   "last_seen": "2026-10-09"
+  },
+  "Google:143097213772276422": {
+   "first_seen": "2026-10-09",
+   "title": "Senior software engineer infrastructure google cloud",
+   "last_seen": "2026-10-09"
+  },
+  "Google:79527562811712198": {
+   "first_seen": "2026-10-09",
+   "title": "Senior software engineer corp eng",
+   "last_seen": "2026-10-09"
+  },
+  "Google:79960816563954374": {
+   "first_seen": "2026-10-09",
+   "title": "Senior software engineer core lavaflow",
+   "last_seen": "2026-10-09"
+  },
+  "Google:83262703669256902": {
+   "first_seen": "2026-10-09",
+   "title": "Software engineer ii aiml",
+   "last_seen": "2026-10-09"
+  },
+  "Google:88607973005238982": {
+   "first_seen": "2026-10-09",
+   "title": "Software engineer iii aiml infrastructure performance engineering",
+   "last_seen": "2026-10-09"
+  },
+  "Google:95905586297610950": {
+   "first_seen": "2026-10-09",
+   "title": "Senior software engineer workspace search quality",
+   "last_seen": "2026-10-09"
+  },
+  "Google:96710280632771270": {
+   "first_seen": "2026-10-09",
+   "title": "Software engineer ii infrastructure",
+   "last_seen": "2026-10-09"
+  },
+  "Google:98573059488654022": {
+   "first_seen": "2026-10-09",
+   "title": "Software engineer iii securityprivacy",
+   "last_seen": "2026-10-09"
+  },
+  "InMobi:7393433": {
+   "first_seen": "2026-10-09",
+   "title": "SDE III - Devops",
+   "last_seen": "2026-10-09"
+  },
+  "Meesho:60e0d986-abe8-42ee-b172-0d9aecb307b7": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer III DevOps",
+   "last_seen": "2026-10-09"
+  },
+  "Meesho:7bb1de7e-8756-412b-8c71-0ba40863edc8": {
+   "first_seen": "2026-10-09",
+   "title": "Software Development Engineer III Data",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393556856779": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Storage (C/C++)",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393556923990": {
+   "first_seen": "2026-10-09",
+   "title": "Research Software Development Engineer-MSR",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393556942516": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Full stack /Desktop Application",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393556943220": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393556955821": {
+   "first_seen": "2026-10-09",
+   "title": "Site Reliability Engineer II",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393556957365": {
+   "first_seen": "2026-10-09",
+   "title": "Design Verification Engineer II",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393556958156": {
+   "first_seen": "2026-10-09",
+   "title": "Design Verification Engineer II",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393556960679": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Data Platform",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393556971560": {
+   "first_seen": "2026-10-09",
+   "title": "Azure ACE Engineer II",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393556977326": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393556982388": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Backend",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393556986177": {
+   "first_seen": "2026-10-09",
+   "title": "Customer Experience Engineer II",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393556988840": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer- Full Stack",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393556990582": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393556991524": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - GitHub",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393556991551": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393556992543": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393556997609": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer II - AI/ML Infrastructure CoreAI",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393556999830": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557000927": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - C# + Azure",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557002143": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Runtime (OS) PCIe",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557006368": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Cloud & Security",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557007450": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557007501": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557007507": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557007984": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557007986": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer II",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557014927": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557016586": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer-II",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557018989": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer II",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557018991": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer 2",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557021653": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557023004": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557023029": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer II- Full Stack Developer",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557023197": {
+   "first_seen": "2026-10-09",
+   "title": "Cloud Network Engineer II",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557023987": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Windows",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557024058": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557024982": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer II",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557026234": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer II (DevOps)",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557026236": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer II",
+   "last_seen": "2026-10-09"
+  },
+  "Microsoft:1970393557026313": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer II",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:40971187": {
+   "first_seen": "2026-10-09",
+   "title": "ServiceNow Developer (ITSM)",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:41061877": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:41145225": {
+   "first_seen": "2026-10-09",
+   "title": "ServiceNow SecOps Developer",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:42231902": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer (Full Stack Engineer)",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:42492904": {
+   "first_seen": "2026-10-09",
+   "title": "Mgr, Software Engineer (Java / Python / Cloud / Distributed)",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:43046324": {
+   "first_seen": "2026-10-09",
+   "title": "Oracle CPQ Developer / Oracle CPQ Consultant",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:43057791": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer(Go,C, C++,Python, Java,Kubernetes, Microservices)",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:43057794": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer (Cloud-Native Services, Go, C, C++, Kubernetes, AWS/Azure)",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:43148948": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:43148949": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:43222067": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer (Golang / Distributed / Kubernetes / Cloud)",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:43356514": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer (Storage & Cloud)",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:43531235": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer (C++)",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:43627415": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer (Security Domain)",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:43658113": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer (Cloud / Distributed / Java / Python)",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:43658115": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer (Cloud / Distributed / Java / Python)",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:43720253": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer in Test (Python)",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:43720616": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Development Engineer in Test (Python)",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:43720617": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer (C, C++)",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:43847780": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer (Java / Python / Cloud / Distributed)",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:44261152": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer (C/ C++ Storage)",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:44367555": {
+   "first_seen": "2026-10-09",
+   "title": "Mgr, Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:44410367": {
+   "first_seen": "2026-10-09",
+   "title": "Salesforce Developer",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:44420963": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer (C/C++, File System)",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:44501924": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:44505577": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:44545613": {
+   "first_seen": "2026-10-09",
+   "title": "Full stack Developer / AI developer (java , angular , spring boot)",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:44546001": {
+   "first_seen": "2026-10-09",
+   "title": "Certinia (formerly FinancialForce) Salesforce Developer & Administrator",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:44546354": {
+   "first_seen": "2026-10-09",
+   "title": "SAP CRM Developer & Operations Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:44574825": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:44574826": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:44591342": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer (AI / Golang / Python / Distributed / Cloud)",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:44606727": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "NetApp:44631166": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32098": {
+   "first_seen": "2026-10-09",
+   "title": "Member of Technical Staff 2- Service Provider",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32100": {
+   "first_seen": "2026-10-09",
+   "title": "Member of Technical Staff 2- Service Provider",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32138": {
+   "first_seen": "2026-10-09",
+   "title": "Member of Technical Staff 4",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32261": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Member Of Technical Staff- Linux & Kernel",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32394": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Member of Technical Staff - Kernel Development",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32395": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer (Linux, Virtualization, Hypervisor)",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32468": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer (Distributed Systems/Cloud Infrastructure)",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32584": {
+   "first_seen": "2026-10-09",
+   "title": "Member of Technical Staff 1- Core Data Path",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32601": {
+   "first_seen": "2026-10-09",
+   "title": "Member of Technical Staff",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32602": {
+   "first_seen": "2026-10-09",
+   "title": "Member of Technical Staff 2 - AI",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32604": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer - AI/Inference /Gateway",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32609": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Member of Technical Staff",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32610": {
+   "first_seen": "2026-10-09",
+   "title": "Member of Technical Staff 4",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32613": {
+   "first_seen": "2026-10-09",
+   "title": "Member of Technical Staff 3",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32669": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Developer - Networking (Flow)",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32672": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Developer - Networking (Flow)",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32674": {
+   "first_seen": "2026-10-09",
+   "title": "Software Developer - Networking (Flow)",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32676": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer 2 (Kernel Development)",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32677": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer 1 - OS Internals",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32688": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer – Master’s New Grad / Bachelor’s + 2–3 Years Experience",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32689": {
+   "first_seen": "2026-10-09",
+   "title": "Member of Technical Staff 2- DataHub",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32690": {
+   "first_seen": "2026-10-09",
+   "title": "Member of Technical Staff 4 - DataHub",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32691": {
+   "first_seen": "2026-10-09",
+   "title": "Member of Technical Staff 4- DataHub",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32692": {
+   "first_seen": "2026-10-09",
+   "title": "Member of Technical Staff 2- EIE",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32693": {
+   "first_seen": "2026-10-09",
+   "title": "Member of Technical Staff 4- End User Computing (EUC)",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32803": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Kubernetes Backend and Platform Engineering",
+   "last_seen": "2026-10-09"
+  },
+  "Nutanix:32813": {
+   "first_seen": "2026-10-09",
+   "title": "Member of Technical Staff 3",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:5772061": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer, Workflows (Fullstack Javascript Engineer)",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:7599312": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:7727730": {
+   "first_seen": "2026-10-09",
+   "title": "ServiceNow Developer SAM",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:7765038": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer – Tooling & Platform (Terraform)",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:7902410": {
+   "first_seen": "2026-10-09",
+   "title": "Senior UI Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:8039085": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:8056119": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer, Professional Services R&D",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:8113501": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer, Customer Dev Tools (Auth0)",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:8119089": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Fullstack Engineer [ Node.js Heavy + React ]",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:8128435": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Fullstack ",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:8185311": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Fullstack Engineer (Java + React.js)",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:8195169": {
+   "first_seen": "2026-10-09",
+   "title": "Workday Extend Developer ",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:8203481": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Fullstack",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:8210918": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer in Test",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:8222464": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer, Lifecycle Management",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:8223817": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer Salesforce",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:8236753": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer in Test (SET) — Access Essentials",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:8239278": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:8242557": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software engineer - Advanced Threat Protection",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:8258817": {
+   "first_seen": "2026-10-09",
+   "title": "Senior  Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Okta:8266566": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Palo Alto Networks:96174865776": {
+   "first_seen": "2026-10-09",
+   "title": "Senior IT Software Engineer Bangalore, Karnātaka, India IT",
+   "last_seen": "2026-10-09"
+  },
+  "Paytm:23534d2b-3e2e-4759-b498-0bb15b2fb995": {
+   "first_seen": "2026-10-09",
+   "title": "Backend - Senior Software Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Razorpay:4731054005": {
+   "first_seen": "2026-10-09",
+   "title": "Frontend Engineer ",
+   "last_seen": "2026-10-09"
+  },
+  "Rippling:0654e4e2-7e90-4be9-b068-dd5e95451fc7": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - AI Governance",
+   "last_seen": "2026-10-09"
+  },
+  "Rippling:23b76264-41d7-48c2-97b0-eab190a65067": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Tax Platform",
+   "last_seen": "2026-10-09"
+  },
+  "Rippling:28e76743-13cf-4e30-94f2-bbaa021a2d9b": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer I -Data Infrastructure ",
+   "last_seen": "2026-10-09"
+  },
+  "Rippling:5fd376db-7efe-407f-8f28-9a32ad93cf90": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer- Payroll Data",
+   "last_seen": "2026-10-09"
+  },
+  "Rippling:61903f31-b572-488c-850b-24d4d486bb4c": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Accounting Integrations",
+   "last_seen": "2026-10-09"
+  },
+  "Rippling:6a697247-06ff-4734-a995-b04b69cd81b8": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Travel Integrations",
+   "last_seen": "2026-10-09"
+  },
+  "Rippling:72d13c8d-b34d-4eb2-ba86-3319b01001b7": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Tax Platform",
+   "last_seen": "2026-10-09"
+  },
+  "Rippling:7e609a7f-bce4-4613-9153-513fbe383631": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer II - Tax Platform ",
+   "last_seen": "2026-10-09"
+  },
+  "Rippling:8d348367-72ad-49d7-a06d-19d691f01069": {
+   "first_seen": "2026-10-09",
+   "title": " Senior Software Engineer - AI Initiative",
+   "last_seen": "2026-10-09"
+  },
+  "Rippling:8d6c5b2d-dab9-4ab9-ac09-e9a0350e1b49": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer ",
+   "last_seen": "2026-10-09"
+  },
+  "Rippling:963f5dc1-3f90-42cf-b72e-f93072ea9f20": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Travel Team ",
+   "last_seen": "2026-10-09"
+  },
+  "Rippling:a04fddba-a7bd-428f-9efe-2b4c1448e982": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - HRIS",
+   "last_seen": "2026-10-09"
+  },
+  "Rippling:a91be8b6-be18-4fad-9738-5b5f40bd14f4": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer II (AI Governance)",
+   "last_seen": "2026-10-09"
+  },
+  "Rippling:aac2f905-fde7-409e-8ff0-20a103bcc2d4": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer, Monetization Platform",
+   "last_seen": "2026-10-09"
+  },
+  "Rippling:ba07b85b-5a59-4446-9d5d-b5aa489ca9b9": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer II - Monetization",
+   "last_seen": "2026-10-09"
+  },
+  "Rippling:ba2d9b19-b917-4216-aa83-c18a44064fe3": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Tax Payments",
+   "last_seen": "2026-10-09"
+  },
+  "Rippling:d6f4e0c5-88d1-401a-a62f-fb0b4af7e468": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Rippling AI",
+   "last_seen": "2026-10-09"
+  },
+  "Rippling:df04d86b-c4df-4c8b-bb8a-cbef8f9863e6": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Data Catalog",
+   "last_seen": "2026-10-09"
+  },
+  "Rubrik:7849713": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - Enterprise AI",
+   "last_seen": "2026-10-09"
+  },
+  "Rubrik:7956920": {
+   "first_seen": "2026-10-09",
+   "title": "Senior Software Engineer - CPD (IAM)",
+   "last_seen": "2026-10-09"
+  },
+  "Rubrik:8256407": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer- SaaS O365",
+   "last_seen": "2026-10-09"
+  },
+  "Rubrik:8258200": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer - Cloud: Azure",
+   "last_seen": "2026-10-09"
+  },
+  "Stripe:7292520": {
+   "first_seen": "2026-10-09",
+   "title": "Backend Engineer, Developer & End-user Experience Platform",
+   "last_seen": "2026-10-09"
+  },
+  "Stripe:7543868": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer, Internal Systems",
+   "last_seen": "2026-10-09"
+  },
+  "Stripe:8209970": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer, Stripe Data Pipeline",
+   "last_seen": "2026-10-09"
+  },
+  "Twilio:8079801": {
+   "first_seen": "2026-10-09",
+   "title": "Software Engineer L3",
+   "last_seen": "2026-10-09"
+  },
+  "Zscaler:5184114007": {
+   "first_seen": "2026-10-09",
+   "title": "Sr. Software Development Engineer",
+   "last_seen": "2026-10-09"
+  },
+  "Zscaler:5202460007": {
+   "first_seen": "2026-10-09",
+   "title": "Sr. Software Development Engineer",
+   "last_seen": "2026-10-09"
+  }
+ },
+ "companies": {
+  "AMD": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 100
+  },
+  "Airbnb": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 159
+  },
+  "Amazon": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 500
+  },
+  "Apple": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 60
+  },
+  "Atlassian": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 355
+  },
+  "CRED": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 8
+  },
+  "Confluent": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 17
+  },
+  "Databricks": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 894
+  },
+  "Google": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 60
+  },
+  "Harness": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 66
+  },
+  "InMobi": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 69
+  },
+  "Media.net": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 1,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 0
+  },
+  "Meesho": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 59
+  },
+  "Microsoft": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 109
+  },
+  "NetApp": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 85
+  },
+  "Nutanix": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 59
+  },
+  "Okta": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 375
+  },
+  "Palo Alto Networks": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 74
+  },
+  "Paytm": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 184
+  },
+  "Razorpay": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 25
+  },
+  "Rippling": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 346
+  },
+  "Rubrik": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 133
+  },
+  "SAP Labs": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 1,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 0
+  },
+  "Stripe": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 731
+  },
+  "Twilio": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 136
+  },
+  "Zscaler": {
+   "bootstrapped": true,
+   "fail_streak": 0,
+   "zero_streak": 0,
+   "warned": false,
+   "last_ok": "2026-10-09",
+   "last_count": 374
+  }
+ }
+}
