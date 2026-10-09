@@ -68,10 +68,9 @@ Posted: 2026-10-07
 Open the job
 ```
 
-Jobs one level up (Senior Software Engineer, SDE III) come with a
-"stretch: senior level" tag, and titles with no level ("Software Engineer") with
-"level not stated". Each job is sent in its own message with its company, job ID,
-location, and a link.
+Explicit senior and SDE-III roles are excluded. Titles with no level (such as
+"Software Engineer") are still eligible and tagged "level not stated". Each job
+is sent in its own message with its company, job ID, location, and a link.
 
 ## Tuning what gets sent
 
@@ -83,8 +82,7 @@ python -m alerts.main --dry-run --show-all
 python -m alerts.main --dry-run --show-all --only Google
 ```
 
-Don't want stretch or unleveled jobs? Set `send_stretch: false` or
-`send_unleveled: false`.
+Titles with no stated level can be switched off with `send_unleveled: false`.
 
 ## When a site breaks
 

@@ -43,12 +43,12 @@ class Filters:
     def title_verdict(self, title: str, extra_keep=()) -> str:
         norm = normalise(title)
         drop_hit = _has_any(norm, self.drop) and not _has_any(norm, self.drop_exceptions)
-        if _has_any(norm, extra_keep) or _has_any(norm, self.keep):
-            return DROP if drop_hit else KEEP
         if drop_hit:
             return DROP
         if _has_any(norm, self.stretch):
             return STRETCH if self.send_stretch else DROP
+        if _has_any(norm, extra_keep) or _has_any(norm, self.keep):
+            return KEEP
         if _has_any(norm, self.unleveled):
             return UNLEVELED if self.send_unleveled else DROP
         return DROP

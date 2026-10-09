@@ -26,7 +26,7 @@ title:
     - platform engineer
     - engineer ii
 
-  # One level above SDE-2: sent with a "stretch" tag. Set send_stretch: false to skip.
+  # Roles above SDE-2, including titles that also contain a keep phrase.
   stretch:
     - senior software engineer
     - senior software development engineer
@@ -75,7 +75,8 @@ title:
   drop_exceptions:
     - member of technical staff
 
-send_stretch: true
+# Exclude senior/SDE-3 roles; roles with no explicit level remain eligible.
+send_stretch: false
 send_unleveled: true
 
 location:

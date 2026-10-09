@@ -49,8 +49,8 @@ def filters():
     ("Software Development Engineer II", KEEP),
     ("Member of Technical Staff", KEEP),
     ("Backend Engineer (Go)", KEEP),
-    ("Senior Software Engineer", STRETCH),
-    ("SDE III", STRETCH),
+    ("Senior Software Engineer", DROP),
+    ("SDE III", DROP),
     ("Software Engineer", UNLEVELED),
     ("Staff Software Engineer", DROP),
     ("Principal Engineer", DROP),
@@ -59,14 +59,21 @@ def filters():
     ("Lead Software Engineer", DROP),
     ("Account Executive", DROP),
     ("Support Engineer II", DROP),
-    ("Software Engineer III", STRETCH),
+    ("Software Engineer III", DROP),
 ])
 def test_title_verdicts(filters, title, expected):
     assert filters.title_verdict(title) == expected
 
 
-def test_google_level_override(filters):
-    assert filters.title_verdict("Software Engineer III, Google Cloud", ["software engineer iii"]) == KEEP
+def test_strict_level_filter_skips_stretch_but_keeps_unleveled_roles():
+    config = load_yaml("filters.yaml")
+    config["send_stretch"] = False
+    strict_filters = Filters(config)
+
+    assert strict_filters.title_verdict("Senior Backend Engineer") == DROP
+    assert strict_filters.title_verdict("Software Engineer III, Google Cloud") == DROP
+    assert strict_filters.title_verdict("Software Engineer") == UNLEVELED
+    assert strict_filters.title_verdict("Software Engineer II") == KEEP
 
 
 @pytest.mark.parametrize("location,ok", [

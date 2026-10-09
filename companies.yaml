@@ -64,7 +64,6 @@ companies:
     pages: 3
     base: "https://www.google.com/about/careers/applications/"
     link_pattern: 'jobs/results/(?P<id>\d+)-(?P<slug>[a-z0-9-]+)'
-    extra_keep: [software engineer iii]   # Google's L4 is "Software Engineer III"
 
   - name: Apple
     source: html_links
