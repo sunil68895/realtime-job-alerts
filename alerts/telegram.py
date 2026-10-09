@@ -5,9 +5,13 @@ apart. Each job is sent as its own message.
 """
 
 import html
+import logging
 import time
 
 import requests
+
+logger = logging.getLogger("alerts.telegram")
+
 
 class Telegram:
     def __init__(self, token: str, chat_id: str, dry_run: bool = False, gap_seconds: float = 3.0):
@@ -35,18 +39,21 @@ class Telegram:
             try:
                 resp = requests.post(url, json=body, timeout=30)
             except requests.RequestException as exc:
-                print(f"Telegram request failed: {exc}")
+                logger.warning("Telegram request failed: %s", exc)
                 time.sleep(5)
                 continue
             self._last = time.monotonic()
             if resp.ok:
+                logger.info("Telegram message sent successfully")
                 return True
             if resp.status_code == 429:
                 retry = resp.json().get("parameters", {}).get("retry_after", 10)
+                logger.warning("Telegram rate limited the send; retrying after %s seconds", retry)
                 time.sleep(int(retry) + 1)
                 continue
-            print(f"Telegram error {resp.status_code}: {resp.text[:300]}")
+            logger.error("Telegram rejected message: HTTP %s: %s", resp.status_code, resp.text[:300])
             return False
+        logger.error("Telegram send failed after all retries")
         return False
 
 

@@ -1,6 +1,7 @@
 """Offline tests: every source is fed a sample response shaped like the live one."""
 
 import json
+from types import SimpleNamespace
 
 import pytest
 
@@ -9,7 +10,7 @@ from alerts.filters import DROP, KEEP, STRETCH, UNLEVELED, Filters
 from alerts.main import load_yaml, parse_args, run, send_alerts
 from alerts.models import FetchError, Job
 from alerts.sources import SOURCES
-from alerts.telegram import job_message
+from alerts.telegram import Telegram, job_message
 
 
 class FakeHttp:
@@ -255,6 +256,19 @@ def test_send_alerts_sends_one_message_per_job():
     assert sent == jobs
     assert len(tg.sent) == len(jobs)
     assert all(f"Job ID:</b> <code>{i}</code>" in message for i, message in enumerate(tg.sent))
+
+
+def test_telegram_api_rejection_is_logged(monkeypatch, caplog):
+    response = SimpleNamespace(ok=False, status_code=400, text='{"description":"Bad Request: chat not found"}')
+    monkeypatch.setattr("alerts.telegram.requests.post", lambda *args, **kwargs: response)
+    telegram = Telegram("token", "chat", gap_seconds=0)
+
+    with caplog.at_level("ERROR", logger="alerts.telegram"):
+        assert telegram.send("test") is False
+
+    assert "HTTP 400" in caplog.text
+    assert "chat not found" in caplog.text
+    assert "token" not in caplog.text
 
 
 # ---------------------------------------------------------------- end to end

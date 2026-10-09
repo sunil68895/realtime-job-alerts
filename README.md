@@ -137,7 +137,7 @@ from `~/.config/job-alerts.env`. For example:
 ```text
 TELEGRAM_BOT_TOKEN=your_token
 TELEGRAM_CHAT_ID=your_chat_id
-JOB_ALERTS_CRON=*/10 * * * *
+JOB_ALERTS_CRON="*/10 * * * *"
 ```
 
 Install cron and register or update this project's crontab entry:
@@ -158,6 +158,8 @@ logs every company's successful fetch (counts of fetched, matched, and new jobs)
 and failed fetch, plus run summaries, to `~/.local/state/job-alerts/job-alerts.log`.
 The installer creates `~/realtime-job-alerts/logs` as a symlink to that persistent
 log directory for easy access from the project folder.
+Telegram delivery errors and successes are also logged without recording credentials
+or message contents.
 Logs rotate hourly to timestamped files; rotated logs older than five days are
 removed when the app starts. The cron runner reads the private env file at each
 run and refuses to start without both Telegram credentials. Disable the systemd
