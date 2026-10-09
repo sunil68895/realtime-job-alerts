@@ -1,6 +1,6 @@
 # SDE-2 job alerts to Telegram
 
-Checks 26 company careers sites every 30 minutes and posts each new SDE-2-level
+Checks 26 company careers sites every 10 minutes and posts each new SDE-2-level
 job in Bengaluru, Hyderabad or NCR to your Telegram channel. It runs free on
 GitHub Actions and remembers what it already sent in `state/seen.json`.
 
@@ -30,8 +30,9 @@ switched off until you test them. See "Adding a company" below.
 
 1. Create a **public** repository (public repos get unlimited free Actions minutes).
    A private repo gets 2,000 free minutes a month, and GitHub rounds each run up to a
-   whole minute. At every 30 minutes that's at least 1,440 minutes, and more if runs
-   take over a minute, so in a private repo change the schedule to hourly (`"7 * * * *"`).
+   whole minute. At every 10 minutes that's at least 4,320 minutes a month, and more
+   if runs take over a minute, so in a private repo change the schedule to hourly
+   (`"7 * * * *"`).
 2. Upload every file in this folder, including the hidden `.github` folder.
 3. In the repo, open **Settings → Secrets and variables → Actions → New repository secret**
    and add:
@@ -46,7 +47,7 @@ switched off until you test them. See "Adding a company" below.
 2. The first run stores every job that's open today **without** sending anything,
    so your channel isn't flooded with old jobs. From the next run on, only jobs
    that appear later are sent.
-3. The timer then runs it every 30 minutes on its own.
+3. The timer then runs it every 10 minutes on its own.
 
 To check Telegram is wired up before that, run locally:
 
@@ -115,12 +116,12 @@ lists jobs, change `enabled: false` to `true`.
 | `alerts/sources/` | One fetch function per hiring system |
 | `alerts/telegram.py` | Message format and sending |
 | `state/seen.json` | Jobs already sent and each company's health (committed by the workflow) |
-| `.github/workflows/check.yml` | The 30-minute timer |
+| `.github/workflows/check.yml` | The 10-minute timer |
 | `.github/workflows/keepalive.yml` | Monthly commit so GitHub doesn't switch the timer off |
 | `tests/` | Offline tests: `pip install pytest && pytest` |
 
 ## Good manners
 
 Requests use a normal browser User-Agent, wait at least a second between calls to
-the same site, and back off on errors. Keep the schedule at 30 minutes or slower.
+the same site, and back off on errors. Keep the schedule at 10 minutes or slower.
 The alerts are for your own job search only.
