@@ -99,6 +99,3 @@ location:
   allow_india_without_city: true
   # No location given, or "3 Locations" style text (Workday).
   allow_unknown: true
-
-# More new jobs than this in one run are sent as one digest message instead.
-digest_threshold: 15

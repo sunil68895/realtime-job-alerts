@@ -1,16 +1,13 @@
 """Send messages to a Telegram channel through a bot.
 
-Telegram allows about 1 message a second in one chat and 20 a minute in a
-group, so messages go out 3 seconds apart, and a big batch becomes a digest.
+Telegram limits how quickly messages can be sent, so messages go out 3 seconds
+apart. Each job is sent as its own message.
 """
 
 import html
 import time
 
 import requests
-
-MAX_MESSAGE = 3800  # Telegram's hard limit is 4096 characters.
-
 
 class Telegram:
     def __init__(self, token: str, chat_id: str, dry_run: bool = False, gap_seconds: float = 3.0):
@@ -58,27 +55,15 @@ def esc(text: str) -> str:
 
 
 def job_message(job) -> str:
-    lines = [f"<b>{esc(job.company)}</b> · {esc(job.title)}"]
-    meta = [m for m in (job.location, job.posted) if m]
-    if meta:
-        lines.append(esc(" · ".join(meta)))
+    lines = [
+        f"<b>Company:</b> {esc(job.company)}",
+        f"<b>Title:</b> {esc(job.title)}",
+        f"<b>Job ID:</b> <code>{esc(job.id)}</code>",
+        f"<b>Location:</b> {esc(job.location or 'Not listed')}",
+    ]
+    if job.posted:
+        lines.append(f"<b>Posted:</b> {esc(job.posted)}")
     if job.tags:
         lines.append(f"<i>{esc(', '.join(job.tags))}</i>")
     lines.append(f'<a href="{html.escape(job.url)}">Open the job</a>')
     return "\n".join(lines)
-
-
-def digest_messages(jobs) -> list:
-    header = f"<b>{len(jobs)} new SDE-2 jobs</b>\n"
-    messages, current = [], header
-    for job in jobs:
-        where = f" ({esc(job.location)})" if job.location else ""
-        tag = f" <i>[{esc(', '.join(job.tags))}]</i>" if job.tags else ""
-        line = (f'\n• <b>{esc(job.company)}</b>: <a href="{html.escape(job.url)}">'
-                f"{esc(job.title)}</a>{where}{tag}")
-        if len(current) + len(line) > MAX_MESSAGE:
-            messages.append(current)
-            current = "<b>(continued)</b>\n"
-        current += line
-    messages.append(current)
-    return messages

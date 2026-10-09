@@ -6,10 +6,10 @@ import pytest
 
 from alerts import main as main_mod
 from alerts.filters import DROP, KEEP, STRETCH, UNLEVELED, Filters
-from alerts.main import load_yaml, parse_args, run
+from alerts.main import load_yaml, parse_args, run, send_alerts
 from alerts.models import FetchError, Job
 from alerts.sources import SOURCES
-from alerts.telegram import digest_messages, job_message
+from alerts.telegram import job_message
 
 
 class FakeHttp:
@@ -232,13 +232,22 @@ def test_every_company_has_a_known_source():
 def test_message_escapes_html():
     job = Job("A&B", "1", "SDE <2>", "Bengaluru", "https://x?a=1&b=2", tags=["stretch: senior level"])
     msg = job_message(job)
-    assert "A&amp;B" in msg and "SDE &lt;2&gt;" in msg and 'href="https://x?a=1&amp;b=2"' in msg
+    assert "Company:</b> A&amp;B" in msg
+    assert "Title:</b> SDE &lt;2&gt;" in msg
+    assert "Job ID:</b> <code>1</code>" in msg
+    assert "Location:</b> Bengaluru" in msg
+    assert 'href="https://x?a=1&amp;b=2"' in msg
 
 
-def test_digest_splits_long_lists():
-    jobs = [Job("Co", str(i), "Software Engineer II " + "x" * 60, "Bengaluru", f"https://x/{i}") for i in range(80)]
-    msgs = digest_messages(jobs)
-    assert len(msgs) > 1 and all(len(m) <= 4096 for m in msgs)
+def test_send_alerts_sends_one_message_per_job():
+    jobs = [Job("Co", str(i), f"Software Engineer II {i}", "Bengaluru", f"https://x/{i}") for i in range(20)]
+    tg = FakeTelegram()
+
+    sent = send_alerts(tg, jobs)
+
+    assert sent == jobs
+    assert len(tg.sent) == len(jobs)
+    assert all(f"Job ID:</b> <code>{i}</code>" in message for i, message in enumerate(tg.sent))
 
 
 # ---------------------------------------------------------------- end to end

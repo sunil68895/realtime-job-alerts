@@ -59,15 +59,19 @@ python -m alerts.main --test-telegram
 ## What a message looks like
 
 ```
-Microsoft · Software Engineer II
-India, Telangana, Hyderabad · 2026-10-07
+
+Company: Microsoft
+Title: Software Engineer II
+Job ID: 123456
+Location: India, Telangana, Hyderabad
+Posted: 2026-10-07
 Open the job
 ```
 
 Jobs one level up (Senior Software Engineer, SDE III) come with a
 "stretch: senior level" tag, and titles with no level ("Software Engineer") with
-"level not stated". If more than 15 new jobs turn up in one run, they arrive as a
-single digest message.
+"level not stated". Each job is sent in its own message with its company, job ID,
+location, and a link.
 
 ## Tuning what gets sent
 
@@ -122,6 +126,7 @@ lists jobs, change `enabled: false` to `true`.
 ## Good manners
 
 Requests use a normal browser User-Agent, wait at least a second between calls to
-the same site, and back off on errors. Keep the schedule at hourly or slower for a
-private GitHub Free repo unless you have enough Actions minutes for more frequent runs.
+the same site, and back off on errors. Messages are sent individually with a delay
+between them to respect Telegram rate limits. Keep the schedule at hourly or slower
+for a private GitHub Free repo unless you have enough Actions minutes for more frequent runs.
 The alerts are for your own job search only.

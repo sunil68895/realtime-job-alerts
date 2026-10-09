@@ -19,7 +19,7 @@ from .http import Http
 from .models import FetchError
 from .sources import SOURCES
 from .state import State
-from .telegram import Telegram, digest_messages, esc, job_message
+from .telegram import Telegram, esc, job_message
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FAIL_WARN_AFTER = 3   # runs in a row that error out
@@ -61,7 +61,6 @@ def run(args, http=None, telegram=None) -> int:
         return 0 if ok else 1
 
     state = State(args.state)
-    digest_threshold = settings.get("digest_threshold", 15)
     to_send, warnings = [], []
     started = time.monotonic()
 
@@ -125,7 +124,7 @@ def run(args, http=None, telegram=None) -> int:
         print(f"[{name}] {len(raw)} jobs, {len(matched)} match, {len(new)} new")
         to_send.extend(new)
 
-    sent = send_alerts(telegram, to_send, digest_threshold)
+    sent = send_alerts(telegram, to_send)
     for job in sent:
         state.mark_seen(job)
     for text in warnings:
@@ -139,13 +138,8 @@ def run(args, http=None, telegram=None) -> int:
     return 0 if len(sent) == len(to_send) else 1
 
 
-def send_alerts(telegram, jobs, digest_threshold):
-    """Send each job (or a digest when there are many). Returns the jobs that went out."""
-    if not jobs:
-        return []
-    if len(jobs) > digest_threshold:
-        ok = all([telegram.send(m) for m in digest_messages(jobs)])
-        return jobs if ok else []
+def send_alerts(telegram, jobs):
+    """Send one message per job and return the jobs that went out."""
     return [job for job in jobs if telegram.send(job_message(job))]
 
 
