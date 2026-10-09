@@ -45,8 +45,8 @@ switched off until you test them. See "Adding a company" below.
 2. The first run stores every job that's open today **without** sending anything,
    so your channel isn't flooded with old jobs. From the next run on, only jobs
    that appear later are sent.
-3. For automatic checks, configure a timer on your host. The Oracle VM setup uses
-   a `systemd` timer and can be configured for every 10 minutes.
+3. For automatic checks on an Oracle VM, configure the cron schedule as described
+   below. The GitHub Actions workflow remains manual-only.
 
 To check Telegram is wired up before that, run locally:
 
@@ -128,3 +128,32 @@ the same site, and back off on errors. Messages are sent individually with a del
 between them to respect Telegram rate limits. Use only one scheduler at a time so
 the GitHub workflow and VM don't send duplicate alerts.
 The alerts are for your own job search only.
+
+## Oracle VM cron schedule
+
+The VM cron runner reads both Telegram credentials and the five-field schedule
+from `~/.config/job-alerts.env`. For example:
+
+```text
+TELEGRAM_BOT_TOKEN=your_token
+TELEGRAM_CHAT_ID=your_chat_id
+JOB_ALERTS_CRON=*/10 * * * *
+```
+
+Install cron and register or update this project's crontab entry:
+
+```bash
+sudo apt install -y cron
+sudo systemctl enable --now cron
+chmod 600 ~/.config/job-alerts.env
+cd ~/realtime-job-alerts
+.venv/bin/python -m scripts.install_cron
+crontab -l
+```
+
+The installer replaces only its own marked entry and leaves unrelated crontab
+entries intact. It accepts numeric five-field cron expressions, such as
+`*/10 * * * *` (every ten minutes) or `7 * * * *` (hourly at minute 7). Cron
+output is written to `~/.local/state/job-alerts/cron.log`. The cron runner reads
+the private env file at each run and refuses to start without both Telegram
+credentials. Disable the systemd timer if you previously configured one.
