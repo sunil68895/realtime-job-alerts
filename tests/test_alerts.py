@@ -209,8 +209,9 @@ def test_html_links_google():
     assert jobs[0].url.startswith("https://www.google.com/about/careers/applications/jobs/results/1287")
 
 
-def test_html_links_sap_city_from_url():
-    html = '<table><tr><td><a href="/job/Bangalore-Sr-DevOps-Engineer-560066/1225119601/">Sr DevOps Engineer</a></td></tr></table>'
+def test_html_links_sap_current_job_url():
+    html = ('<table><tr><td><a href="/en/jobs/1225119601/sr-devops-engineer/">'
+            'Sr DevOps Engineer</a><span>Bangalore, India</span></td></tr></table>')
     cfg = load_company("SAP Labs")
     jobs = list(SOURCES["html_links"](FakeHttp({"jobs.sap.com": html}), {**cfg, "pages": 1}))
     assert jobs[0].id == "1225119601" and "Bangalore" in jobs[0].location
@@ -312,6 +313,28 @@ def test_repeated_failures_warn_once(tmp_path):
         run(args, http=FakeHttp({}), telegram=tg)
     warnings = [m for m in tg.sent if "warning" in m.lower()]
     assert len(warnings) == 1 and "failing for 3 runs" in warnings[0]
+
+
+def test_repeated_empty_fetches_do_not_warn(tmp_path):
+    args = parse_args(["--only", "Airbnb", "--state", str(tmp_path / "seen.json")])
+    tg = FakeTelegram()
+    for _ in range(8):
+        run(args, http=FakeHttp({"greenhouse.io": {"jobs": []}}), telegram=tg)
+    assert tg.sent == []
+    saved = json.load(open(args.state))
+    assert saved["companies"]["Airbnb"]["zero_streak"] == 8
+
+
+def test_successful_empty_fetch_resets_failure_warning_state(tmp_path):
+    args = parse_args(["--only", "Airbnb", "--state", str(tmp_path / "seen.json")])
+    tg = FakeTelegram()
+    for _ in range(3):
+        run(args, http=FakeHttp({}), telegram=tg)
+    assert len(tg.sent) == 1
+
+    run(args, http=FakeHttp({"greenhouse.io": {"jobs": []}}), telegram=tg)
+    run(args, http=FakeHttp({}), telegram=tg)
+    assert len(tg.sent) == 1
 
 
 def test_failed_send_is_retried_next_run(tmp_path):

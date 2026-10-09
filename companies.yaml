@@ -74,10 +74,10 @@ companies:
 
   - name: SAP Labs
     source: html_links
-    url: "https://jobs.sap.com/search/?q=developer&locationsearch=India&startrow={offset}"
+    url: "https://jobs.sap.com/en/jobs/?q=developer&locationsearch=India&startrow={offset}"
     pages: 3
     page_size: 25
-    link_pattern: '/job/(?P<city>[A-Za-z]+)-(?P<slug>[^/]+)/(?P<id>\d+)/'
+    link_pattern: '/en/jobs/(?P<id>\d+)/(?P<slug>[^/?#]+)/'
 
   - name: Nutanix
     source: html_links

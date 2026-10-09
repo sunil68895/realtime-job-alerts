@@ -86,9 +86,10 @@ Titles with no stated level can be switched off with `send_unleveled: false`.
 
 ## When a site breaks
 
-If a company fails 3 runs in a row, or returns no jobs at all for 6 runs, you get
-one warning in the channel. Run `--only <Company> --dry-run --show-all` to see
-what's wrong. The usual causes:
+If a company fetch fails 3 runs in a row, you get one warning in the channel.
+Successful fetches with no parsed jobs are logged for diagnosis but never send
+routine Telegram warnings. Run `--only <Company> --dry-run --show-all` to inspect
+the feed. The usual causes:
 
 - **Feed name changed** (Greenhouse, Lever, Ashby): open the company's careers
   page, click a job, and copy the new name from the job's web address.

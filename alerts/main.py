@@ -24,7 +24,6 @@ from .telegram import Telegram, esc, job_message
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FAIL_WARN_AFTER = 3   # runs in a row that error out
-ZERO_WARN_AFTER = 6   # runs in a row that return no jobs at all
 
 
 def load_yaml(name):
@@ -90,16 +89,15 @@ def run(args, http=None, telegram=None) -> int:
                 health["warned"] = True
             continue
 
-        if not raw:
-            health["zero_streak"] += 1
-            if health["zero_streak"] >= ZERO_WARN_AFTER and not health["warned"]:
-                warnings.append(f"<b>{esc(name)}</b>: no jobs at all for {health['zero_streak']} runs. "
-                                "The careers site may have changed.")
-                health["warned"] = True
+        if health["warned"]:
+            logger.info("[%s] recovered after prior fetch failures", name)
+        health.update(fail_streak=0, warned=False)
+        if raw:
+            health["zero_streak"] = 0
         else:
-            if health["warned"]:
-                logger.info("[%s] recovered after prior failures or empty results", name)
-            health.update(fail_streak=0, zero_streak=0, warned=False)
+            health["zero_streak"] += 1
+            logger.info("[%s] returned no jobs for %d consecutive successful fetches",
+                        name, health["zero_streak"])
         health["last_ok"] = state.today
         health["last_count"] = len(raw)
 

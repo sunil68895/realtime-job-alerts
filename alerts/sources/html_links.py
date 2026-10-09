@@ -18,8 +18,8 @@ Palo Alto Networks, Media.net). Each company in companies.yaml gives:
 
 The location comes from the text around each link (the job card), so the
 city filter still works on pages that don't put the city in the address.
-If a page redesign breaks the pattern, the source returns zero jobs and the
-health check warns you on Telegram.
+If a page redesign breaks the pattern, the source returns zero jobs; the
+successful empty result is logged for diagnosis without a Telegram warning.
 """
 
 import re
