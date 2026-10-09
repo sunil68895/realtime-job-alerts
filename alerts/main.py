@@ -5,6 +5,7 @@
   python -m alerts.main --only Microsoft    check one company
   python -m alerts.main --show-all          print every fetched title and the filter's verdict
   python -m alerts.main --test-telegram     send one test message and stop
+  python -m alerts.main --test-backup-telegram  test the optional backup bot
 """
 
 import argparse
@@ -37,6 +38,7 @@ def parse_args(argv=None):
     p.add_argument("--only", help="check only this company (name as in companies.yaml)")
     p.add_argument("--show-all", action="store_true")
     p.add_argument("--test-telegram", action="store_true")
+    p.add_argument("--test-backup-telegram", action="store_true")
     p.add_argument("--state", default=os.path.join(ROOT, "state", "seen.json"))
     return p.parse_args(argv)
 
@@ -49,11 +51,31 @@ def make_telegram(dry_run):
     return Telegram(token, chat, dry_run=dry_run)
 
 
-def run(args, http=None, telegram=None) -> int:
+def make_backup_telegram(dry_run, logger):
+    token = os.environ.get("TELEGRAM_BACKUP_BOT_TOKEN", "")
+    chat = os.environ.get("TELEGRAM_BACKUP_CHAT_ID", "")
+    if not token and not chat:
+        return None
+    if not token or not chat:
+        logger.error("Backup Telegram is disabled: configure both "
+                     "TELEGRAM_BACKUP_BOT_TOKEN and TELEGRAM_BACKUP_CHAT_ID.")
+        return None
+    return Telegram(token, chat, dry_run=dry_run)
+
+
+def run(args, http=None, telegram=None, backup_telegram=None) -> int:
     logger = configure_logging(os.path.dirname(os.path.abspath(args.state)) or ".")
     settings = load_yaml("filters.yaml")
     companies = load_yaml("companies.yaml").get("companies", [])
     filters = Filters(settings)
+    backup_telegram = backup_telegram or make_backup_telegram(args.dry_run, logger)
+
+    if args.test_backup_telegram:
+        if backup_telegram is None:
+            sys.exit("Set TELEGRAM_BACKUP_BOT_TOKEN and TELEGRAM_BACKUP_CHAT_ID to test the backup bot.")
+        ok = backup_telegram.send("Job alerts backup bot is connected and ready for operational alerts.")
+        return 0 if ok else 1
+
     telegram = telegram or make_telegram(args.dry_run)
     http = http or Http()
 
@@ -62,7 +84,7 @@ def run(args, http=None, telegram=None) -> int:
         return 0 if ok else 1
 
     state = State(args.state)
-    to_send, warnings = [], []
+    to_send, warnings, backup_notices = [], [], []
     started = time.monotonic()
 
     for cfg in companies:
@@ -87,11 +109,18 @@ def run(args, http=None, telegram=None) -> int:
                 warnings.append(f"<b>{esc(name)}</b>: failing for {health['fail_streak']} runs in a row. "
                                 f"Last error: {esc(str(exc))[:300]}")
                 health["warned"] = True
+            if (backup_telegram and health["fail_streak"] >= FAIL_WARN_AFTER
+                    and not health.get("backup_fetch_warned", False)):
+                backup_notices.append(
+                    f"{name}: fetch failed for {health['fail_streak']} consecutive runs. "
+                    f"Latest error: {str(exc)[:250]}"
+                )
+                health["backup_fetch_warned"] = True
             continue
 
         if health["warned"]:
             logger.info("[%s] recovered after prior fetch failures", name)
-        health.update(fail_streak=0, warned=False)
+        health.update(fail_streak=0, warned=False, backup_fetch_warned=False)
         if raw:
             health["zero_streak"] = 0
         else:
@@ -130,9 +159,21 @@ def run(args, http=None, telegram=None) -> int:
     sent = send_alerts(telegram, to_send)
     for job in sent:
         state.mark_seen(job)
+    failed_alerts = len(to_send) - len(sent)
     for text in warnings:
-        telegram.send("Job alerts warning\n" + text)
-        logger.warning("Sent company health warning: %s", text)
+        if telegram.send("Job alerts warning\n" + text):
+            logger.warning("Sent company health warning: %s", text)
+        else:
+            failed_alerts += 1
+            logger.error("Failed to send company health warning.")
+
+    if failed_alerts:
+        backup_notices.append(
+            f"The primary Telegram bot failed to deliver {failed_alerts} alert(s). "
+            "Unsent job alerts remain eligible for retry."
+        )
+    if backup_notices:
+        notify_backup(backup_telegram, backup_notices, logger)
 
     pruned = state.prune()
     if not args.dry_run:
@@ -147,6 +188,20 @@ def run(args, http=None, telegram=None) -> int:
 def send_alerts(telegram, jobs):
     """Send one message per job and return the jobs that went out."""
     return [job for job in jobs if telegram.send(job_message(job))]
+
+
+def notify_backup(telegram, notices, logger):
+    """Send one operational notice without allowing backup delivery to interrupt job alerts."""
+    if telegram is None:
+        return
+    message = "Job alerts operational notice\n" + "\n".join(
+        f"• {esc(notice)}" for notice in notices
+    )
+    try:
+        if not telegram.send(message):
+            logger.error("Backup Telegram could not deliver an operational notice.")
+    except Exception:
+        logger.exception("Backup Telegram raised an error while delivering an operational notice.")
 
 
 def main(argv=None):

@@ -26,6 +26,11 @@ switched off until you test them. See "Adding a company" below.
    - Private channel: post any message in it, then open
      `https://api.telegram.org/bot<TOKEN>/getUpdates` in a browser and copy the
      `chat.id` (it starts with `-100`). If the list is empty, post again and reload.
+4. For independent operational alerts, create a second bot with **@BotFather**
+   (`/newbot`) and give it a distinct name. Add it as an administrator to a
+   private alerts channel (or start a private chat with it using `/start`), then
+   get that destination's chat ID the same way. Keep this token separate from
+   the job-alert bot token.
 
 ### 2. Put the code on GitHub
 
@@ -139,6 +144,8 @@ from `~/.config/job-alerts.env`. For example:
 TELEGRAM_BOT_TOKEN=your_token
 TELEGRAM_CHAT_ID=your_chat_id
 JOB_ALERTS_CRON="*/10 * * * *"
+TELEGRAM_BACKUP_BOT_TOKEN=your_backup_bot_token
+TELEGRAM_BACKUP_CHAT_ID=your_private_alerts_chat_id
 ```
 
 Install cron and register or update this project's crontab entry:
@@ -161,6 +168,13 @@ The installer creates `~/realtime-job-alerts/logs` as a symlink to that persiste
 log directory for easy access from the project folder.
 Telegram delivery errors and successes are also logged without recording credentials
 or message contents.
+The backup bot is optional. When configured, it sends one notice after a source
+fetch fails for three consecutive runs and reports failed primary-bot deliveries.
+Fetch notices are sent once per outage and reset after a successful fetch. If
+backup delivery fails, that failure is logged locally and is not sent back
+through the primary bot. Test the backup bot from the project directory with
+`.venv/bin/python -m alerts.main --test-backup-telegram`; `--test-telegram`
+continues to test the primary bot.
 Logs rotate hourly to timestamped files; rotated logs older than five days are
 removed when the app starts. The cron runner reads the private env file at each
 run and refuses to start without both Telegram credentials. Disable the systemd

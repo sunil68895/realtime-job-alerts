@@ -315,6 +315,61 @@ def test_repeated_failures_warn_once(tmp_path):
     assert len(warnings) == 1 and "failing for 3 runs" in warnings[0]
 
 
+def test_repeated_fetch_failures_notify_backup_once_per_outage(tmp_path):
+    args = parse_args(["--only", "Airbnb", "--state", str(tmp_path / "seen.json")])
+    primary, backup = FakeTelegram(), FakeTelegram()
+    for _ in range(5):
+        run(args, http=FakeHttp({}), telegram=primary, backup_telegram=backup)
+    assert len(backup.sent) == 1
+    assert "Airbnb" in backup.sent[0] and "fetch failed" in backup.sent[0]
+
+    run(args, http=FakeHttp({"greenhouse.io": {"jobs": []}}),
+        telegram=primary, backup_telegram=backup)
+    for _ in range(3):
+        run(args, http=FakeHttp({}), telegram=primary, backup_telegram=backup)
+    assert len(backup.sent) == 2
+
+
+def test_backup_delivery_error_does_not_abort_checker(tmp_path):
+    args = parse_args(["--only", "Airbnb", "--state", str(tmp_path / "seen.json")])
+
+    class BrokenBackup:
+        def send(self, text):
+            raise RuntimeError("backup unavailable")
+
+    result = 0
+    for _ in range(3):
+        result = run(args, http=FakeHttp({}), telegram=FakeTelegram(),
+                     backup_telegram=BrokenBackup())
+    assert result == 0
+
+
+def test_test_backup_telegram_does_not_require_primary_bot(tmp_path):
+    args = parse_args(["--test-backup-telegram", "--state", str(tmp_path / "seen.json")])
+    backup = FakeTelegram()
+    assert run(args, backup_telegram=backup) == 0
+    assert len(backup.sent) == 1 and "backup bot is connected" in backup.sent[0]
+
+
+def test_failed_primary_job_delivery_notifies_backup_and_retries(tmp_path):
+    args = parse_args(["--only", "Airbnb", "--state", str(tmp_path / "seen.json")])
+    run(args, http=FakeHttp({"greenhouse.io": greenhouse_feed([1])}), telegram=FakeTelegram())
+
+    class DownTelegram(FakeTelegram):
+        def send(self, text):
+            self.sent.append(text)
+            return False
+
+    backup = FakeTelegram()
+    assert run(args, http=FakeHttp({"greenhouse.io": greenhouse_feed([1, 2])}),
+               telegram=DownTelegram(), backup_telegram=backup) == 1
+    assert len(backup.sent) == 1 and "failed to deliver 1 alert" in backup.sent[0]
+
+    primary = FakeTelegram()
+    run(args, http=FakeHttp({"greenhouse.io": greenhouse_feed([1, 2])}), telegram=primary)
+    assert len(primary.sent) == 1 and "https://x/2" in primary.sent[0]
+
+
 def test_repeated_empty_fetches_do_not_warn(tmp_path):
     args = parse_args(["--only", "Airbnb", "--state", str(tmp_path / "seen.json")])
     tg = FakeTelegram()
