@@ -1,8 +1,9 @@
 # SDE-2 job alerts to Telegram
 
-Checks 26 company careers sites every hour and posts each new SDE-2-level
-job in Bengaluru, Hyderabad or NCR to your Telegram channel. It runs free on
-GitHub Actions and remembers what it already sent in `state/seen.json`.
+Checks 26 company careers sites on a configurable schedule and posts each new
+SDE-2-level job in Bengaluru, Hyderabad or NCR to your Telegram channel. The
+GitHub Actions workflow is manual-only; for automatic checks, use a host timer
+such as systemd on an Oracle Cloud VM. Seen jobs are stored in `state/seen.json`.
 
 **Companies watched:** Airbnb, Stripe, Databricks, Rubrik, Okta, Twilio, Zscaler,
 Harness, Razorpay, InMobi (Greenhouse) · CRED, Meesho, Paytm (Lever) · Confluent
@@ -28,10 +29,8 @@ switched off until you test them. See "Adding a company" below.
 
 ### 2. Put the code on GitHub
 
-1. Create a **public** repository (public repos get unlimited free Actions minutes).
-   A private repo gets 2,000 free minutes a month, and GitHub rounds each run up to a
-   whole minute. At every hour that's about 720–744 runs a month, so check your
-   workflow's actual run duration to make sure total usage stays within the allowance.
+1. Create a repository. The Actions workflow can be run manually for testing; it
+   has no automatic schedule, so it won't duplicate a VM timer.
 2. Upload every file in this folder, including the hidden `.github` folder.
 3. In the repo, open **Settings → Secrets and variables → Actions → New repository secret**
    and add:
@@ -46,7 +45,8 @@ switched off until you test them. See "Adding a company" below.
 2. The first run stores every job that's open today **without** sending anything,
    so your channel isn't flooded with old jobs. From the next run on, only jobs
    that appear later are sent.
-3. The timer then runs it every hour on its own.
+3. For automatic checks, configure a timer on your host. The Oracle VM setup uses
+   a `systemd` timer and can be configured for every 10 minutes.
 
 To check Telegram is wired up before that, run locally:
 
@@ -117,7 +117,7 @@ lists jobs, change `enabled: false` to `true`.
 | `alerts/sources/` | One fetch function per hiring system |
 | `alerts/telegram.py` | Message format and sending |
 | `state/seen.json` | Jobs already sent and each company's health (committed by the workflow) |
-| `.github/workflows/check.yml` | The hourly timer |
+| `.github/workflows/check.yml` | Manual GitHub Actions run |
 | `.github/workflows/keepalive.yml` | Monthly commit so GitHub doesn't switch the timer off |
 | `tests/` | Offline tests: `pip install pytest && pytest` |
 
@@ -125,6 +125,6 @@ lists jobs, change `enabled: false` to `true`.
 
 Requests use a normal browser User-Agent, wait at least a second between calls to
 the same site, and back off on errors. Messages are sent individually with a delay
-between them to respect Telegram rate limits. Keep the schedule at hourly or slower
-for a private GitHub Free repo unless you have enough Actions minutes for more frequent runs.
+between them to respect Telegram rate limits. Use only one scheduler at a time so
+the GitHub workflow and VM don't send duplicate alerts.
 The alerts are for your own job search only.

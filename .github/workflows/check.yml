@@ -1,9 +1,6 @@
 name: Check for SDE-2 jobs
 
 on:
-  schedule:
-    # Hourly at :07 (UTC). GitHub can delay scheduled runs when busy.
-    - cron: "7 * * * *"
   workflow_dispatch:
     inputs:
       dry_run:
