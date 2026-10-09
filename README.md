@@ -163,7 +163,10 @@ The installer replaces only its own marked entry and leaves unrelated crontab
 entries intact. It accepts numeric five-field cron expressions, such as
 `*/10 * * * *` (every ten minutes) or `7 * * * *` (hourly at minute 7). The app
 logs every company's successful fetch (counts of fetched, matched, and new jobs)
-and failed fetch, plus run summaries, to `~/.local/state/job-alerts/job-alerts.log`.
+and failed fetch, plus run summaries, to separate
+`~/.local/state/job-alerts/job-alerts-info.log` and
+`~/.local/state/job-alerts/job-alerts-error.log` files. The info file contains
+INFO and WARNING records; the error file contains ERROR and CRITICAL records.
 The installer creates `~/realtime-job-alerts/logs` as a symlink to that persistent
 log directory for easy access from the project folder.
 Telegram delivery errors and successes are also logged without recording credentials
@@ -176,7 +179,7 @@ through the primary bot. Test the backup bot from the project directory with
 `.venv/bin/python -m alerts.cron_runner --test-backup-telegram`; the cron runner
 loads the private env file before running the test. `--test-telegram` continues
 to test the primary bot.
-Logs rotate hourly to timestamped files; rotated logs older than five days are
-removed when the app starts. The cron runner reads the private env file at each
-run and refuses to start without both Telegram credentials. Disable the systemd
-timer if you previously configured one.
+Both files rotate hourly to timestamped files; rotated logs older than five days
+are removed when the app starts. The cron runner reads the private env file at
+each run and refuses to start without both Telegram credentials. Disable the
+systemd timer if you previously configured one.

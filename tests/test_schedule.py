@@ -118,22 +118,33 @@ def test_ensure_log_link_refuses_unmanaged_existing_path(tmp_path):
         ensure_log_link(project, state_dir)
 
 
-def test_logging_rotates_hourly_and_removes_only_logs_older_than_five_days(tmp_path):
+def test_logging_separates_levels_rotates_hourly_and_removes_expired_logs(tmp_path):
     old_log = tmp_path / "job-alerts.log.2020-01-01_00"
+    old_error_log = tmp_path / "job-alerts-error.log.2020-01-01_00"
     unrelated_log = tmp_path / "other.log.2020-01-01_00"
     old_log.write_text("old", encoding="utf-8")
+    old_error_log.write_text("old error", encoding="utf-8")
     unrelated_log.write_text("keep", encoding="utf-8")
     old_log.touch()
+    old_error_log.touch()
     os.utime(old_log, (1, 1))
+    os.utime(old_error_log, (1, 1))
 
     logger = configure_logging(tmp_path)
     logger.info("successful fetch: company=Example jobs=3")
-    handler = next(h for h in logger.handlers if hasattr(h, "when"))
+    logger.error("failed fetch: company=Example")
+    handlers = [h for h in logger.handlers if hasattr(h, "when")]
     try:
-        assert handler.when == "H"
-        assert handler.interval == 3600
-        assert (tmp_path / "job-alerts.log").read_text(encoding="utf-8").find("successful fetch") >= 0
+        assert len(handlers) == 2
+        assert all(handler.when == "H" and handler.interval == 3600 for handler in handlers)
+        info_contents = (tmp_path / "job-alerts-info.log").read_text(encoding="utf-8")
+        error_contents = (tmp_path / "job-alerts-error.log").read_text(encoding="utf-8")
+        assert "successful fetch" in info_contents
+        assert "failed fetch" not in info_contents
+        assert "failed fetch" in error_contents
+        assert "successful fetch" not in error_contents
         assert not old_log.exists()
+        assert not old_error_log.exists()
         assert unrelated_log.exists()
     finally:
         for active_handler in logger.handlers[:]:
