@@ -173,8 +173,9 @@ fetch fails for three consecutive runs and reports failed primary-bot deliveries
 Fetch notices are sent once per outage and reset after a successful fetch. If
 backup delivery fails, that failure is logged locally and is not sent back
 through the primary bot. Test the backup bot from the project directory with
-`.venv/bin/python -m alerts.main --test-backup-telegram`; `--test-telegram`
-continues to test the primary bot.
+`.venv/bin/python -m alerts.cron_runner --test-backup-telegram`; the cron runner
+loads the private env file before running the test. `--test-telegram` continues
+to test the primary bot.
 Logs rotate hourly to timestamped files; rotated logs older than five days are
 removed when the app starts. The cron runner reads the private env file at each
 run and refuses to start without both Telegram credentials. Disable the systemd

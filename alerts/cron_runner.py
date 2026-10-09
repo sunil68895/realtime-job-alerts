@@ -19,7 +19,7 @@ def main() -> None:
 
     os.execve(
         sys.executable,
-        [sys.executable, "-m", "alerts.main", "--state", str(state_file)],
+        [sys.executable, "-m", "alerts.main", "--state", str(state_file), *sys.argv[1:]],
         env,
     )
 

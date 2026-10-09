@@ -1,7 +1,9 @@
 import os
+from pathlib import Path
 
 import pytest
 
+from alerts import cron_runner
 from alerts.logging_setup import configure_logging
 from alerts.schedule import read_env_file, validate_cron_expression
 from scripts.install_cron import (
@@ -23,6 +25,29 @@ def test_read_env_file_supports_comments_whitespace_and_quotes(tmp_path):
         "JOB_ALERTS_CRON": "*/10 * * * *",
         "TELEGRAM_CHAT_ID": "-100123",
     }
+
+
+def test_cron_runner_loads_env_and_forwards_cli_options(tmp_path, monkeypatch):
+    env_file = tmp_path / ".config" / "job-alerts.env"
+    env_file.parent.mkdir()
+    env_file.write_text(
+        "TELEGRAM_BOT_TOKEN=private\nTELEGRAM_CHAT_ID=chat\n"
+        "TELEGRAM_BACKUP_BOT_TOKEN=backup\nTELEGRAM_BACKUP_CHAT_ID=ops\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(Path, "home", lambda: tmp_path)
+    monkeypatch.setattr(cron_runner.sys, "argv", ["cron_runner", "--test-backup-telegram"])
+    executed = {}
+
+    def record_execve(executable, args, env):
+        executed.update(executable=executable, args=args, env=env)
+
+    monkeypatch.setattr(cron_runner.os, "execve", record_execve)
+    cron_runner.main()
+
+    assert executed["args"][-1] == "--test-backup-telegram"
+    assert executed["env"]["TELEGRAM_BACKUP_BOT_TOKEN"] == "backup"
+    assert executed["env"]["TELEGRAM_BACKUP_CHAT_ID"] == "ops"
 
 
 @pytest.mark.parametrize("expression", [
