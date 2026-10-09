@@ -1,0 +1,104 @@
+# What counts as an SDE-2 job in your cities.
+# Matching ignores case and punctuation: "SDE-II", "Sde 2" and "SDE II" are the same.
+# Edit freely; run `python -m alerts.main --dry-run --show-all` to see the effect.
+
+title:
+  # Sent as a normal alert.
+  keep:
+    - sde 2
+    - sde ii
+    - sde2
+    - sde-2
+    - software development engineer 2
+    - software development engineer ii
+    - software engineer 2
+    - software engineer ii
+    - software developer 2
+    - software developer ii
+    - member of technical staff
+    - mts 2
+    - mts ii
+    - backend engineer
+    - frontend engineer
+    - full stack engineer
+    - fullstack engineer
+    - product engineer
+    - platform engineer
+    - engineer ii
+
+  # One level above SDE-2: sent with a "stretch" tag. Set send_stretch: false to skip.
+  stretch:
+    - senior software engineer
+    - senior software development engineer
+    - senior backend engineer
+    - senior full stack engineer
+    - sde 3
+    - sde iii
+    - software engineer iii
+    - software development engineer iii
+    - senior member of technical staff
+    - smts
+
+  # No level in the title: sent with a "level not stated" tag. Set send_unleveled: false to skip.
+  unleveled:
+    - software engineer
+    - software developer
+    - software development engineer
+    - developer
+
+  # Never sent, even if a keep word also matches.
+  drop:
+    - intern
+    - internship
+    - apprentice
+    - staff
+    - principal
+    - distinguished
+    - architect
+    - manager
+    - director
+    - head of
+    - vice president
+    - vp
+    - lead
+    - fellow
+    - test engineer
+    - qa
+    - sdet
+    - support engineer
+    - sales
+    - solutions engineer
+    - data analyst
+    - phd
+
+  # Phrases that contain a drop word but should still be sent.
+  drop_exceptions:
+    - member of technical staff
+
+send_stretch: true
+send_unleveled: true
+
+location:
+  cities:
+    - bengaluru
+    - bangalore
+    - hyderabad
+    - gurugram
+    - gurgaon
+    - noida
+    - new delhi
+    - delhi
+    - ncr
+  # Remote roles that can be done from India.
+  remote_india:
+    - remote india
+    - india remote
+    - remote in
+    - in remote
+  # "India" with no city named (common on Big Tech sites).
+  allow_india_without_city: true
+  # No location given, or "3 Locations" style text (Workday).
+  allow_unknown: true
+
+# More new jobs than this in one run are sent as one digest message instead.
+digest_threshold: 15

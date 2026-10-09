@@ -1,0 +1,126 @@
+# One entry per company. `source` picks the fetch function in alerts/sources.
+# Every enabled entry below was checked against the live site on 8 Oct 2026.
+# Optional per company:
+#   enabled: false        skip it (still runnable with --only)
+#   extra_keep: [...]     extra title phrases that count as SDE-2 for this company
+#   title_filter: false   send every title (used for Media.net's team pages)
+#   location_filter: false
+
+companies:
+  # ---------- Greenhouse ----------
+  - {name: Airbnb, source: greenhouse, board: airbnb}
+  - {name: Stripe, source: greenhouse, board: stripe}
+  - {name: Databricks, source: greenhouse, board: databricks}
+  - {name: Rubrik, source: greenhouse, board: rubrik}
+  - {name: Okta, source: greenhouse, board: okta}
+  - {name: Twilio, source: greenhouse, board: twilio}
+  - {name: Zscaler, source: greenhouse, board: zscaler}
+  - {name: Harness, source: greenhouse, board: harnessinc}
+  - {name: Razorpay, source: greenhouse, board: razorpaysoftwareprivatelimited}
+  - {name: InMobi, source: greenhouse, board: inmobi}
+
+  # ---------- Lever ----------
+  - {name: CRED, source: lever, board: cred}
+  - {name: Meesho, source: lever, board: meesho}
+  - {name: Paytm, source: lever, board: paytm}
+
+  # ---------- Ashby ----------
+  - {name: Confluent, source: ashby, board: confluent}
+
+  # ---------- Rippling's own hiring system ----------
+  - {name: Rippling, source: rippling, board: rippling}
+
+  # ---------- Company feeds ----------
+  - name: Amazon
+    source: amazon
+    query: software development engineer
+    location: India
+
+  - name: Microsoft
+    source: eightfold_pcsx
+    host: apply.careers.microsoft.com
+    domain: microsoft.com
+    query: software engineer
+    location: India
+
+  - name: NetApp
+    source: eightfold_v2
+    host: netapp.eightfold.ai
+    domain: netapp.com
+    location: India
+
+  - {name: Atlassian, source: atlassian}
+
+  - name: AMD
+    source: jibe
+    host: careers.amd.com
+    query: software
+    country: India
+
+  # ---------- Careers web pages (no JSON feed) ----------
+  - name: Google
+    source: html_links
+    url: "https://www.google.com/about/careers/applications/jobs/results/?location=India&q=software%20engineer&page={page}"
+    pages: 3
+    base: "https://www.google.com/about/careers/applications/"
+    link_pattern: 'jobs/results/(?P<id>\d+)-(?P<slug>[a-z0-9-]+)'
+    extra_keep: [software engineer iii]   # Google's L4 is "Software Engineer III"
+
+  - name: Apple
+    source: html_links
+    url: "https://jobs.apple.com/en-in/search?location=india-INDC&search=software%20engineer&page={page}"
+    pages: 3
+    link_pattern: '/details/(?P<id>[0-9][0-9-]*)/(?P<slug>[a-z0-9-]+)'
+    extra_keep: [ict3]
+
+  - name: SAP Labs
+    source: html_links
+    url: "https://jobs.sap.com/search/?q=developer&locationsearch=India&startrow={offset}"
+    pages: 3
+    page_size: 25
+    link_pattern: '/job/(?P<city>[A-Za-z]+)-(?P<slug>[^/]+)/(?P<id>\d+)/'
+
+  - name: Nutanix
+    source: html_links
+    url: "https://careers.nutanix.com/en/jobs/?search=software&pagesize=20&page={page}"
+    pages: 3
+    link_pattern: '/en/jobs/(?P<id>\d+)/(?P<slug>[a-z0-9-]+)/'
+
+  - name: Palo Alto Networks
+    source: html_links
+    # The site ignored the city in the address when tested, so read a few pages
+    # (15 jobs each, newest first) and let the city filter do the work.
+    url: "https://jobs.paloaltonetworks.com/en/search-jobs?k=software%20engineer&p={page}"
+    pages: 5
+    link_pattern: '/en/job/(?P<city>[a-z-]+)/(?P<slug>[a-z0-9-]+)/47263/(?P<id>\d+)'
+
+  - name: Media.net
+    source: html_links
+    url: "https://careers.media.net/"
+    # Media.net lists open roles per team page. This watches the engineering team
+    # pages and alerts when one appears or its role count changes.
+    link_pattern: '^(?:https://careers\.media\.net)?/(?P<id>[a-z-]*(?:engineer|develop|technolog|software)[a-z-]*)/?$'
+    id_includes_text: true
+    title_filter: false
+    location_filter: false
+
+  # ---------- Workday: site confirmed, job list not yet tested ----------
+  # Turn one on with `enabled: true` after `python -m alerts.main --only NVIDIA --dry-run --show-all` works.
+  - {name: NVIDIA, source: workday, tenant: nvidia, shard: wd5, site: NVIDIAExternalCareerSite, enabled: false}
+  - {name: Salesforce, source: workday, tenant: salesforce, shard: wd12, site: External_Career_Site, enabled: false}
+  - {name: Adobe, source: workday, tenant: adobe, shard: wd5, site: external_experienced, enabled: false}
+  - {name: Intel, source: workday, tenant: intel, shard: wd1, site: External, enabled: false}
+  - {name: Autodesk, source: workday, tenant: autodesk, shard: wd1, site: Ext, enabled: false}
+  - {name: Target, source: workday, tenant: target, shard: wd5, site: targetcareers, enabled: false}
+  - {name: Expedia Group, source: workday, tenant: expedia, shard: wd108, site: search, enabled: false}
+  - {name: Cisco, source: workday, tenant: cisco, shard: wd5, site: Cisco_Careers, enabled: false}
+  - {name: Broadcom, source: workday, tenant: broadcom, shard: wd1, site: External_Career, enabled: false}
+  - {name: Sprinklr, source: workday, tenant: sprinklr, shard: wd1, site: careers, enabled: false}
+  - {name: Visa, source: workday, tenant: visa, shard: wd5, site: Visa, enabled: false}
+  - {name: Mastercard, source: workday, tenant: mastercard, shard: wd1, site: CorporateCareers, enabled: false}
+  - {name: BlackRock, source: workday, tenant: blackrock, shard: wd1, site: BlackRock_Professional, enabled: false}
+
+  # ---------- Other confirmed sites, not yet tested ----------
+  - {name: Freshworks, source: smartrecruiters, board: Freshworks, enabled: false}
+  - {name: Groww, source: greenhouse, board: groww, region: eu, enabled: false}
+  - {name: PayPal, source: eightfold_v2, host: paypal.eightfold.ai, domain: paypal.com, enabled: false}

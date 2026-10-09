@@ -1,0 +1,58 @@
+name: Check for SDE-2 jobs
+
+on:
+  schedule:
+    # Every 30 minutes at :07 and :37 (UTC). GitHub can delay scheduled runs when busy.
+    - cron: "7,37 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Print messages instead of sending them"
+        type: boolean
+        default: false
+
+concurrency:
+  group: job-alerts
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # to commit state/seen.json
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Check careers sites
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            python -m alerts.main --dry-run
+          else
+            python -m alerts.main
+          fi
+
+      - name: Save what was sent
+        if: always() && inputs.dry_run != true
+        run: |
+          git config user.name "job-alerts-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add state/seen.json
+          if git diff --cached --quiet; then
+            echo "No state change."
+          else
+            git commit -m "Update seen jobs"
+            git pull --rebase --autostash
+            git push
+          fi

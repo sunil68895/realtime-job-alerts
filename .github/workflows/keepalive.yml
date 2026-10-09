@@ -1,0 +1,25 @@
+name: Keep schedule alive
+
+# GitHub turns off scheduled workflows in a public repo after 60 days with no
+# commits. The checker commits most days, but this monthly commit covers quiet months.
+on:
+  schedule:
+    - cron: "11 4 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          date -u +%Y-%m-%dT%H:%MZ > state/keepalive.txt
+          git config user.name "job-alerts-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add state/keepalive.txt
+          git commit -m "Monthly keepalive"
+          git pull --rebase --autostash
+          git push
